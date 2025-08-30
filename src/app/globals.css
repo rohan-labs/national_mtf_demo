@@ -24,3 +24,80 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom styles for chat markdown */
+.chat-markdown h1,
+.chat-markdown h2,
+.chat-markdown h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.chat-markdown h1:first-child,
+.chat-markdown h2:first-child,
+.chat-markdown h3:first-child {
+  margin-top: 0;
+}
+
+.chat-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-markdown ul,
+.chat-markdown ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.chat-markdown li {
+  margin-bottom: 0.125rem;
+}
+
+.chat-markdown li:last-child {
+  margin-bottom: 0;
+}
+
+.chat-markdown blockquote {
+  margin: 0.5rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid #d1d5db;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.chat-markdown code {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+.chat-markdown a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.chat-markdown a:hover {
+  color: #1d4ed8;
+}
+
+/* Input field styling for better visibility */
+input[type="text"] {
+  color: #111827 !important; /* Dark gray for better visibility */
+  background-color: #ffffff !important;
+}
+
+input[type="text"]::placeholder {
+  color: #6b7280 !important; /* Medium gray for placeholder */
+}
+
+input[type="text"]:focus {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}
+
+input[type="text"]:disabled {
+  color: #9ca3af !important; /* Lighter gray when disabled */
+  background-color: #f3f4f6 !important;
+}
