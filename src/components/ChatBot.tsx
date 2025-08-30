@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import Image from 'next/image';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -23,7 +22,7 @@ export default function ChatBot() {
     setIsLoading(true);
 
     // Add user message to chat
-    const newMessages = [...messages, { role: 'user', content: userMessage }];
+    const newMessages: Message[] = [...messages, { role: 'user' as const, content: userMessage }];
     setMessages(newMessages);
 
     try {
@@ -43,11 +42,11 @@ export default function ChatBot() {
       }
 
       const data = await response.json();
-      setMessages(data.conversationHistory);
+      setMessages(data.conversationHistory as Message[]);
     } catch (error) {
       console.error('Error sending message:', error);
       setMessages(prev => [...prev, { 
-        role: 'assistant', 
+        role: 'assistant' as const, 
         content: 'Sorry, I encountered an error. Please try again.' 
       }]);
     } finally {
@@ -91,10 +90,10 @@ export default function ChatBot() {
                 <p className="text-sm font-medium mb-3">Quick Questions:</p>
                 <div className="flex flex-col space-y-2">
                   <button
-                    onClick={() => setInputMessage("Who's on the Executive team?")}
+                    onClick={() => setInputMessage("Who&apos;s on the Executive team?")}
                     className="bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-lg text-sm transition-colors duration-200"
                   >
-                    Who's on the Executive team?
+                    Who&apos;s on the Executive team?
                   </button>
                   <button
                     onClick={() => setInputMessage("What recent events have run on MTF?")}
@@ -103,10 +102,10 @@ export default function ChatBot() {
                     What recent events have run on MTF?
                   </button>
                   <button
-                    onClick={() => setInputMessage("What's the Innovation Programme?")}
+                    onClick={() => setInputMessage("What&apos;s the Innovation Programme?")}
                     className="bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-lg text-sm transition-colors duration-200"
                   >
-                    What's the Innovation Programme?
+                    What&apos;s the Innovation Programme?
                   </button>
                 </div>
               </div>
@@ -198,7 +197,7 @@ export default function ChatBot() {
             <p className="text-xs text-gray-500 mb-2">Quick Questions:</p>
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setInputMessage("Who's on the Executive team?")}
+                onClick={() => setInputMessage("Who&apos;s on the Executive team?")}
                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs transition-colors duration-200"
               >
                 Executive Team
@@ -210,7 +209,7 @@ export default function ChatBot() {
                 Recent Events
               </button>
               <button
-                onClick={() => setInputMessage("What's the Innovation Programme?")}
+                onClick={() => setInputMessage("What&apos;s the Innovation Programme?")}
                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs transition-colors duration-200"
               >
                 Innovation Programme
