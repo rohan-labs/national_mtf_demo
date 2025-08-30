@@ -37,8 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Information trained on information scraped on National MTF website using firecrawl
 
-> After reviewing the raw context, I identified several items I missed. Here are the key omissions:
->
 > ## Missing Items from Raw Context:
 >
 > 1. **MTF Hackathon 2023 specific details**
